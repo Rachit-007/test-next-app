@@ -26,11 +26,11 @@ export default function Home({ data }) {
     <>
       <div className="w-full mx-auto max-w-7xl">
         <div className="flex gap-3 flex-col justify-center w-full">
-          {data.items[0].fields.navigationTabs.map((item) => (
-            <div className="flex m-3 w-full">
+          {data.items[0].fields.navigationTabs.map((item, index) => (
+            <div className="flex m-3 w-full" key={index}>
               {item.fields.tabCols &&
-                item.fields.tabCols.map((col) => (
-                  <div className="flex flex-col m-5">
+                item.fields.tabCols.map((col, index) => (
+                  <div className="flex flex-col m-5" key={index}>
                     {documentToReactComponents(col.fields.col, options)}
                   </div>
                 ))}
