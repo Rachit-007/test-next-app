@@ -11,8 +11,8 @@ const options = {
     [INLINES.HYPERLINK]: (node, children) => {
       console.log(children);
       return (
-        <Link className="block" href={node.data.uri}>
-          {children[0]}
+        <Link href={node.data.uri}>
+          <span className="block">{children}</span>
         </Link>
       );
     },
@@ -31,7 +31,7 @@ export default function Home({ data }) {
             <div className="flex m-3 w-full" key={index}>
               {item.fields.tabCols &&
                 item.fields.tabCols.map((col, index) => (
-                  <div className="flex flex-col m-5" key={index}>
+                  <div className="flex flex-col m-5 " key={index}>
                     {documentToReactComponents(col.fields.col, options)}
                   </div>
                 ))}
