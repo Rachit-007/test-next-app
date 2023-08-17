@@ -9,9 +9,10 @@ import Link from "next/link";
 const options = {
   renderNode: {
     [INLINES.HYPERLINK]: (node, children) => {
+      console.log(children);
       return (
         <Link className="block" href={node.data.uri}>
-          {children}
+          {children[0]}
         </Link>
       );
     },
